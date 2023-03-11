@@ -1,0 +1,36 @@
+chalk ---> highlighting text in terminal
+validator ---> for validating strings, emails etc
+app.use(express.json()) ---> the express.json() is a middleware that add the body to the request object 
+                                so that we can access req.body
+
+Object.assign({id: 4}, req.body) ---> this method merges the two objects
+Object.keys(obj1) ---> this method return array of all keys of the obj1
+Object.values(obj1) ---> this method returnn array of all values of the obj1
+
+morgan ---> used to log the http requests ex.> GET /api/v1/tours/2 200 886 - 7.103 ms
+
+router.param('parameter name' ,(req,res,next,val)=>{....})  -->param middleware looks for a specific parameter in the url and performs any action
+operation on it if present
+
+
+-----------mongodb----------
+
+show dbs                                                -> shows all databases
+use [db_name]                                           -> uses the db if present and if not present creates it
+db                                                      -> shows active database
+show collections                                        -> show all the collections/tables present
+db.createCollection('name')                             -> create the collection of name
+db.collectionName.insertOne({obj})                      -> creates a document of data present in obj
+db.collectionName.insertMany({obj1}, {obj2})            -> creates multiple documents
+
+#READ operation
+
+db.collectionName.find()                                -> shows all documents/rows
+db.collectionName.find().pretty()                       -> shows all documents in pretty format
+db.collectionName.find({name: 'ashu'})                  -> displays document which has name = ashu
+db.collectionName.find({name: 'ashu'}, {name:1})        -> displays document with only name field which has name = ashu
+db.collectionName.find({price: {$lte: 500}})
+db.collectionName.find({$or: [{price: {$lte: 500}}, {rating: {$gt: 4.5}}]})
+db.collectionName.find({active: true}. limit(1).skip(1)) -> skips the first document
+
+ 
