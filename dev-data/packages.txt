@@ -33,4 +33,8 @@ db.collectionName.find({price: {$lte: 500}})
 db.collectionName.find({$or: [{price: {$lte: 500}}, {rating: {$gt: 4.5}}]})
 db.collectionName.find({active: true}. limit(1).skip(1)) -> skips the first document
 
+
+
+console.log(app.get('env'));
+console.log(process.env);
  
