@@ -54,11 +54,27 @@ exports.patchTour = async (req, res) => {
 		const updatedTour = await Tour.findByIdAndUpdate(
 			req.params.id,
 			req.body,
-			{ new: true }
+			{ new: true, runValidators: true }
 		);
 		res.status(200).json({
 			status: "success",
 			data: { updatedTour },
+		});
+	} catch (error) {
+		res.status(400).json({
+			status: "fail",
+			message: error.message,
+		});
+	}
+};
+
+exports.deleteTour = async (req, res) => {
+	try {
+		const d = await Tour.findByIdAndDelete(req.params.id);
+		console.log(d);
+		res.status(204).json({
+			status: "success",
+			data: null,
 		});
 	} catch (error) {
 		res.status(400).json({
